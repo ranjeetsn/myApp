@@ -1,0 +1,45 @@
+classdef OrderCalculator < handle
+    % This class sets the model (static/dynamic)
+    
+    properties (Access = private)
+        d_OrderCalculatorType
+        d_Order
+        d_EigenValues
+    end
+    
+    methods 
+        
+        function obj                    = OrderCalculator(order_calculator_type)
+            obj.m_setOrderCalculator(order_calculator_type);
+        end
+        
+        function obj                    = m_setOrderCalculator(obj, order_calculator_type)
+            obj.d_OrderCalculatorType   = OrderCalculatorType.newType(order_calculator_type);
+        end
+        
+        % This function should be used only if Order Calculator Type is
+        % Hypothesis Testing
+        function obj    = m_configureHypothesisTesting(obj, lag, variance_model, stacked_data)
+            obj.d_OrderCalculatorType.m_setLag(lag);
+            obj.d_OrderCalculatorType.m_setVarianceModel(variance_model);
+            obj.d_OrderCalculatorType.m_setStackedData(stacked_data);
+%            obj.d_OrderCalculatorType.m_setNoOfRealizations(no_of_realizations);
+        end
+        
+        function order      = m_computeOrder(obj)
+            [obj.d_Order,obj.d_EigenValues]  = obj.d_OrderCalculatorType.ComputeOrder();
+            order           = obj.d_Order;
+            eigen_values =
+        end
+
+        function obj    = m_setOrder(obj, order)
+            obj.d_OrderCalculatorType.m_setOrder(order);
+        end
+        
+        function order  = m_getOrder(obj)
+                 order  = obj.d_Order;
+        end
+        
+    end
+    
+end

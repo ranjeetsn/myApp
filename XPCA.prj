@@ -1,0 +1,128 @@
+<deployment-project plugin="plugin.apptool" plugin-version="1.0">
+  <configuration build-checksum="1737613891" file="/Users/apple/Dropbox/XPCA/XPCA.prj" location="/Users/apple/Dropbox/XPCA" name="XPCA" target="target.mlapps" target-name="Package App">
+    <param.appname>XPCA</param.appname>
+    <param.authnamewatermark>Lokesh Rajulapati</param.authnamewatermark>
+    <param.email>lokesh.rajulpati@gmail.com</param.email>
+    <param.company>IIT Madras</param.company>
+    <param.icon />
+    <param.icons />
+    <param.summary>XPCA implements IPCA and DIPCA</param.summary>
+    <param.description>XPCA is designed to handle various versions of PCA. Currently, IPCA and DIPCA are implements with support to extend it to PCA, MLPCA, DPCA.</param.description>
+    <param.screenshot />
+    <param.version>1.0</param.version>
+    <param.products.name />
+    <param.products.id />
+    <param.products.version />
+    <param.platforms />
+    <param.output>/Users/apple/Dropbox/XPCA</param.output>
+    <param.guid>64747404-48c7-41f8-bf01-08d751f28ba5</param.guid>
+    <unset>
+      <param.icon />
+      <param.icons />
+      <param.screenshot />
+      <param.version />
+      <param.products.name />
+      <param.products.id />
+      <param.products.version />
+      <param.platforms />
+      <param.output />
+    </unset>
+    <fileset.main>
+      <file>${PROJECT_ROOT}/newUI.mlapp</file>
+    </fileset.main>
+    <fileset.depfun>
+      <file>${PROJECT_ROOT}/ConfidenceIntervalCalculator.m</file>
+      <file>${PROJECT_ROOT}/ConstraintNumberCalculator.m</file>
+      <file>${PROJECT_ROOT}/Dataobj.m</file>
+      <file>${PROJECT_ROOT}/IPCA_utils.m</file>
+      <file>${PROJECT_ROOT}/MD_DynamicModel.m</file>
+      <file>${PROJECT_ROOT}/MD_StaticModel.m</file>
+      <file>${PROJECT_ROOT}/Model.m</file>
+      <file>${PROJECT_ROOT}/ModelType.m</file>
+      <file>${PROJECT_ROOT}/ModelTypeEnums.m</file>
+      <file>${PROJECT_ROOT}/OC_EigenPlots.m</file>
+      <file>${PROJECT_ROOT}/OC_HypothesisTesting.m</file>
+      <file>${PROJECT_ROOT}/OC_UserDefined.m</file>
+      <file>${PROJECT_ROOT}/OrderCalculator.m</file>
+      <file>${PROJECT_ROOT}/OrderCalculatorEnums.m</file>
+      <file>${PROJECT_ROOT}/OrderCalculatorType.m</file>
+      <file>${PROJECT_ROOT}/OrderValueInputApp.mlapp</file>
+      <file>${PROJECT_ROOT}/OutputApp.mlapp</file>
+      <file>${PROJECT_ROOT}/PP_DoNothing.m</file>
+      <file>${PROJECT_ROOT}/PP_SkipAlternate.m</file>
+      <file>${PROJECT_ROOT}/Preprocessor.m</file>
+      <file>${PROJECT_ROOT}/PreprocessorType.m</file>
+      <file>${PROJECT_ROOT}/SysidUtils.m</file>
+      <file>${PROJECT_ROOT}/VCV_DiagonalMapper.m</file>
+      <file>${PROJECT_ROOT}/VCV_DipcaMapper.m</file>
+      <file>${PROJECT_ROOT}/VCV_GenericMapper.m</file>
+      <file>${PROJECT_ROOT}/VR_KnownVariance.m</file>
+      <file>${PROJECT_ROOT}/VR_UnknownVariance.m</file>
+      <file>${PROJECT_ROOT}/VS_MLESolver.m</file>
+      <file>${PROJECT_ROOT}/VS_TLSSolver.m</file>
+      <file>${PROJECT_ROOT}/VarianceCovarianceMapper.m</file>
+      <file>${PROJECT_ROOT}/VarianceCovarianceMapperType.m</file>
+      <file>${PROJECT_ROOT}/VarianceModel.m</file>
+      <file>${PROJECT_ROOT}/VarianceModelType.m</file>
+      <file>${PROJECT_ROOT}/VarianceSolver.m</file>
+      <file>${PROJECT_ROOT}/VarianceSolverType.m</file>
+      <file>${PROJECT_ROOT}/xpca.m</file>
+    </fileset.depfun>
+    <fileset.resources />
+    <fileset.package />
+    <build-deliverables>
+      <file location="/Users/apple/Dropbox" name="XPCA" optional="false">/Users/apple/Dropbox/XPCA</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/Applications/MATLAB_R2018a.app</root>
+      <toolboxes>
+        <toolbox name="fixedpoint" />
+        <toolbox name="matlabcoder" />
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="polyspacebugfinder" />
+      </toolboxes>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <polyspacebugfinder>
+          <enabled>true</enabled>
+        </polyspacebugfinder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>true</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>false</linux>
+      <solaris>false</solaris>
+      <osver>10.14.5</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>maci64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>

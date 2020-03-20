@@ -1,0 +1,27 @@
+load InputdataIPCA.mat
+data =Z
+g = xpca(data)
+g.m_setModel("STATIC_MODEL")
+
+
+g.m_setPreprocessor("NULL")
+
+g.m_preprocessData()
+
+g.m_setVarianceModel("UNKNOWN")
+
+g.m_configureVarianceModelForDiagonalMapper()
+g.m_setVarianceSolver("MLE_SOLVER")
+.m_initializeErrorVariances();
+g.m_initializeErrorVariances();
+strct(g)
+struct(g)
+d=struct(g)
+d.d_VarianceModel
+e=struct(d.d_VarianceModel)
+e.d_errorVariances
+clc
+order = g.m_computeOrder()
+g.m_computeCovariancesForStaticCase()
+3
+model = g.m_computeModel()

@@ -1,0 +1,7 @@
+Systems Engineer and Application Designer
+
+Worked on the development of MIMO DIPCA and IPCA Algorithm, which is a new method to build a linear BlackBox mathematical model of any system, Parameter Hypothesis Testing and Bootstrapping, and Kalman Filtering for model validation.
+
+Designed, Tested and Developed a MATLAB Application for the algorithm and supporting mathematical tools on MATLAB APP Designer.
+
+Collaborated with a team of 8 through effective communication, active listening and Leadership skills, and participated with clients in discussion meetings.

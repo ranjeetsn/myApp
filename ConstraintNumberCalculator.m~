@@ -1,0 +1,80 @@
+classdef ConstraintNumberCalculator < handle
+    %This class calculates the number of constraints in the given data
+    
+    properties
+        d_Data
+        d_VarianceModel
+        d_DMax
+        d_DMin
+        d_DValue
+    end
+    
+    methods
+%% These functions initialize the a ConstraintNumberCalculator object        
+        function obj = ConstraintNumberCalculator()
+            disp('In ConstraintNumberCalculator: Constructor');
+        end
+        
+        function obj    = m_setData(obj, data)
+            obj.d_Data  = data;
+        end
+        
+        function obj    = m_setVarianceModel(obj, variance_model)
+            obj.d_VarianceModel = variance_model;
+        end
+        
+        function obj    = m_setDMax(obj, d_max)
+            obj.d_DMax  = d_max;
+        end
+        
+        function obj    = m_setDMin(obj, d_min)
+            obj.d_DMin  = d_min;
+        end
+%% These functions handle the computation of the number of constraints
+
+        function number_of_constraints = m_ComputeNumberOfConstraints(obj)
+            
+            for d_val = obj.d_DMax : -1 : obj.d_DMin
+                
+                num_equal_eigs     = obj.d_DMax;   % this is only an initialization
+                eig_values         = obj.m_ComputeEigenvaluesForGivenD(d_val);
+                no_of_realizations = size(obj.d_Data.m_getData(), 2);
+                num_equal_eigs     = SysidUtils.HypothesisTest(eig_values, no_of_realizations, SysidUtils.ALPHA_HYPOTHESIS_TESTING());
+                
+                if ( num_equal_eigs == d_val )
+                    number_of_constraints   = d_val;
+                    obj.d_DValue            = d_val;
+                    return;
+                end
+            end
+            number_of_constraints   = DEFAULT_NUMBER_OF_CONSTRAINTS(); 
+            obj.d_DValue            = d_val;
+        end
+        
+    end
+    
+    methods (Access = private)
+        
+        function d = DEFAULT_NUMBER_OF_CONSTRAINTS()
+            d = 9999999;
+        end
+        
+        function eig_vals = m_ComputeEigenvaluesForGivenD(obj, d_val)
+            disp("OC_HypothesisTesting: m_ComputeEigenvaluesForGivenD")
+            co_variance = obj.m_ComputeNoiseCovarianceForGivenD(d_val);
+            eig_vals    = obj.m_ComputeEigenValuesGivenDataAndCovariance(co_variance);
+            
+        end
+        
+        function covariance = m_ComputeNoiseCovarianceForGivenD(obj, d_val)
+            obj.d_VarianceModel.m_setNoOfConstraints(d_val);
+            covariance = obj.d_VarianceModel.m_ComputeCovariance(obj.d_Data, d_val);
+        end
+        
+        function eig_vals = m_ComputeEigenValuesGivenDataAndCovariance(obj,  co_variance)
+            eig_vals = SysidUtils.m_ComputeEigenValuesforGivenDataAndCovariance(obj.d_Data.m_getData(), co_variance);
+        end
+    end
+    
+end
+
